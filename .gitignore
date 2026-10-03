@@ -217,6 +217,7 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-experiments/
 simulation_demo.png
 twintrade.bat
+experiments/results*.csv
+experiments/report*.md
