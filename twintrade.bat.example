@@ -1,0 +1,32 @@
+@echo off
+rem ====================================================================
+rem TwinTrade Batch Script Example
+rem Explicitly targets .venv\Scripts\twintrade.exe to prevent self-recursion
+rem ====================================================================
+
+set TWINTRADE_EXE="%~dp0.venv\Scripts\twintrade.exe"
+if not exist %TWINTRADE_EXE% set TWINTRADE_EXE=twintrade
+
+%TWINTRADE_EXE% ^
+  --stock-a-name "Stock A" ^
+  --growth-a 0.08 ^
+  --vol-a 0.015 ^
+  --price-a 100.0 ^
+  --stock-b-name "Stock B" ^
+  --growth-b 0.08 ^
+  --vol-b 0.015 ^
+  --price-b 100.0 ^
+  --correlation 0.0 ^
+  --fee-percent 0.001 ^
+  --fee-fixed 0.0 ^
+  --initial-value 1000.0 ^
+  --threshold 0.05 ^
+  --threshold-type relative ^
+  --num-days 252 ^
+  --num-sims 1000
+
+rem Optional flags that can be added to the command above:
+rem   --seed 42
+rem   --plot-output simulation_chart.png
+rem   --show-plot
+rem   --json-output summary_report.json
